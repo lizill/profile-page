@@ -1,0 +1,75 @@
+.main {
+  @apply w-screen h-screen;
+}
+
+.background {
+  @apply absolute w-full h-full bg-cover bg-center;
+}
+
+.container {
+  @apply relative max-w-[1540px] h-full mx-auto text-white;
+}
+
+.article {
+  @apply space-y-12;
+  animation: append 1s;
+  position: absolute;
+  transform: translateY(-50%);
+  top: 50%;
+
+  h1 {
+    @apply text-5xl font-bold;
+  }
+}
+
+.aTags {
+  display: grid;
+  grid-template-columns: 185px 185px;
+  column-gap: 1rem;
+  row-gap: 1rem;
+
+  a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    border: 1px solid white;
+    height: 46px;
+    line-height: 46px;
+    transition: all 200ms;
+
+    &:hover {
+      background-color: white;
+      color: black;
+    }
+  }
+}
+
+.arrowDown {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  font-size: 2.25em;
+  transform: translateX(-50%);
+  animation: bounce 500ms infinite alternate;
+}
+
+@keyframes bounce {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-1rem);
+  }
+}
+
+@keyframes append {
+  from {
+    transform: translateY(-60px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(-50%);
+    opacity: 1;
+  }
+}
