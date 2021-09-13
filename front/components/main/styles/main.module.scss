@@ -2,17 +2,13 @@
   @apply w-screen h-screen;
 }
 
-.background {
-  @apply absolute w-full h-full bg-cover bg-center;
-}
-
 .container {
   @apply relative max-w-[1540px] h-full mx-auto text-white;
 }
 
 .article {
   @apply space-y-12;
-  animation: append 1s;
+  animation: appendArticle 1s;
   position: absolute;
   transform: translateY(-50%);
   top: 50%;
@@ -63,13 +59,22 @@
   }
 }
 
-@keyframes append {
+@keyframes appendArticle {
   from {
-    transform: translateY(-60px);
+    transform: translateY(-80px);
     opacity: 0;
   }
   to {
     transform: translateY(-50%);
     opacity: 1;
+  }
+}
+
+@keyframes zoomOut {
+  from {
+    transform: scale(1.2);
+  }
+  to {
+    transform: scale(1);
   }
 }

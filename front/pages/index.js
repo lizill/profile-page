@@ -1,14 +1,24 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 import Main from '../components/main';
 import Header from '../components/header';
+import { useTranslation } from 'react-i18next';
+
+export const getStaticProps = async ({ locale }) => ({
+  props: {
+    ...(await serverSideTranslations(locale, ["common"])),
+  },
+});
 
 export default function Home() {
+  const { t } = useTranslation("common");
+  
   return (
     <div className={styles.container}>
       <Head>
-        <title>Dong's Profile</title>
+        <title>{t("title")}</title>
         <meta name="description" content="Dong's profile page" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

@@ -1,15 +1,22 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
+import Link from "next/link";
 
 import styles from './styles/header.module.scss'
 
 const Header = () => {
+  const { t } = useTranslation("common");
   return (
     <header className={styles.header}>
       <menu className={styles.menu}>
-        <p>ドンのプロフィール</p>
+        <p>{t("title")}</p>
         <div className={styles.aTags}>
-          <a href="#">KR</a>
-          <a href="#">JP</a>
+          <Link href="/" locale="en">
+            <a>EN</a>
+          </Link>
+          <Link href="/" locale="ja">
+            <a>JP</a>
+          </Link>
         </div>
       </menu>
     </header>

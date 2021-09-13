@@ -25,6 +25,16 @@
   font-size: 1.8em;
   font-weight: bold;
 }
+.menu a:nth-child(1):lang(en) {
+  color: #b3b3b3;
+  pointer-events: none;
+  cursor: default;
+}
+.menu a:nth-child(2):lang(ja) {
+  color: #999999;
+  pointer-events: none;
+  cursor: default;
+}
 .menu .aTags a {
   font-weight: bold;
 }

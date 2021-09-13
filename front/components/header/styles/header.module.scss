@@ -19,6 +19,18 @@
     font-weight: bold;
   }
 
+  a:nth-child(1):lang(en) {
+    color: darken(white, 40%);
+    pointer-events: none;
+    cursor: default;
+  }
+
+  a:nth-child(2):lang(ja) {
+    color: darken(white, 40%);
+    pointer-events: none;
+    cursor: default;
+  }
+
   .aTags {
     a {
       font-weight: bold;
