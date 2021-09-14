@@ -16,31 +16,43 @@ const images = [
 ]
 
 const StyledSlider = styled(Slider)`
-  div img {
-    transition: 2s;
-    transform: scale(1.2);
-  }
-  .slick-current div img {
+  .slick-current div div {
     transform: scale(1);
   }
-`
+
+  ul .slick-active button::before {
+    border: white solid 1px;
+    width: 40px;
+  }
+`;
 
 const Main = () => {
   const { t } = useTranslation("common");
 
+  const settings = {
+    dots: true,
+    fade: true, 
+    infinite: true,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    speed: 1000,
+    arrows: false,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  }
+
   return (
     <main className={styles.main}>
-      <div className="absolute w-screen h-screen overflow-hidden">
-        <StyledSlider fade infinite autoplay
-          autoplaySpeed={6000}
-          speed={1000}
-          arrows={false}
-          slidesToShow={1}
-          slidesToScroll={1}
-          focusOnSelect
-        >
+      <div className={styles.sliderContainer}>
+        <StyledSlider dotsClass={styles.dots} {...settings}>
           {images.map(v => (
-            <img className={styles.img} key={v.id} src={v.url} alt={v.name} width="100%"/>
+            <div>
+              <div
+                className={styles.img}
+                key={v.id}
+                style={{ backgroundImage: `url(${v.url})` }}
+              ></div>
+            </div>
           ))}
         </StyledSlider>
       </div>

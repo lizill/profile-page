@@ -3,20 +3,38 @@
 }
 
 .container {
-  @apply relative max-w-[1540px] h-full mx-auto text-white;
+  @apply flex items-center relative max-w-[1600px] px-[60px] h-full mx-auto text-white;
+}
+@media only screen and (max-width: 769px) {
+  .container {
+    padding: 0px 20px;
+  }
+}
+
+.sliderContainer {
+  @apply absolute w-screen h-screen overflow-hidden;
 }
 
 .article {
   @apply space-y-12;
   -webkit-animation: appendArticle 1s;
           animation: appendArticle 1s;
-  position: absolute;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-  top: 50%;
 }
 .article h1 {
   @apply text-5xl font-bold;
+}
+@media only screen and (max-width: 769px) {
+  .article {
+    @apply space-y-10;
+    top: 74px;
+  }
+  .article p {
+    width: 298px;
+  }
+  .article h1 {
+    @apply text-3xl;
+    width: 330px;
+  }
 }
 
 .aTags {
@@ -48,6 +66,17 @@
   background-color: white;
   color: black;
 }
+@media only screen and (max-width: 769px) {
+  .aTags {
+    grid-template-columns: 130px 130px;
+  }
+  .aTags a {
+    padding: 0 10px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 0.7em;
+  }
+}
 
 .arrowDown {
   position: absolute;
@@ -58,6 +87,46 @@
           transform: translateX(-50%);
   -webkit-animation: bounce 500ms infinite alternate;
           animation: bounce 500ms infinite alternate;
+}
+
+.img {
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  -webkit-transition: 3s;
+  transition: 3s;
+}
+
+.dots {
+  @apply space-y-3;
+  position: absolute;
+  top: 70vh;
+  left: 2rem;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+.dots li button {
+  line-height: 0;
+  display: block;
+  cursor: pointer;
+  color: transparent;
+}
+.dots li button:before {
+  -webkit-transition: 300ms;
+  transition: 300ms;
+  position: absolute;
+  width: 20px;
+  content: " ";
+  border: 1px solid #6d6968;
+  opacity: 0.75;
+}
+@media only screen and (max-width: 769px) {
+  .dots {
+    left: 20px;
+  }
 }
 
 @-webkit-keyframes bounce {
@@ -83,25 +152,25 @@
 }
 @-webkit-keyframes appendArticle {
   from {
-    -webkit-transform: translateY(-80px);
-            transform: translateY(-80px);
+    -webkit-transform: translateY(40px);
+            transform: translateY(40px);
     opacity: 0;
   }
   to {
-    -webkit-transform: translateY(-50%);
-            transform: translateY(-50%);
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
     opacity: 1;
   }
 }
 @keyframes appendArticle {
   from {
-    -webkit-transform: translateY(-80px);
-            transform: translateY(-80px);
+    -webkit-transform: translateY(40px);
+            transform: translateY(40px);
     opacity: 0;
   }
   to {
-    -webkit-transform: translateY(-50%);
-            transform: translateY(-50%);
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
     opacity: 1;
   }
 }

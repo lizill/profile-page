@@ -1,20 +1,41 @@
+$phone: "only screen and (max-width: 769px)";
+
 .main {
   @apply w-screen h-screen;
 }
 
 .container {
-  @apply relative max-w-[1540px] h-full mx-auto text-white;
+  @apply flex items-center relative max-w-[1600px] px-[60px] h-full mx-auto text-white;
+
+  @media #{$phone} {
+    padding: 0px 20px;
+  }
+}
+
+.sliderContainer {
+  @apply absolute w-screen h-screen overflow-hidden;
 }
 
 .article {
   @apply space-y-12;
   animation: appendArticle 1s;
-  position: absolute;
-  transform: translateY(-50%);
-  top: 50%;
 
   h1 {
     @apply text-5xl font-bold;
+  }
+
+  @media #{$phone} {
+    @apply space-y-10;
+    top: 74px;
+
+    p {
+      width: 298px;
+    }
+
+    h1 {
+      @apply text-3xl;
+      width: 330px;
+    }
   }
 }
 
@@ -39,6 +60,17 @@
       color: black;
     }
   }
+
+  @media #{$phone} {
+    grid-template-columns: 130px 130px;
+
+    a {
+      padding: 0 10px;
+      height: 40px;
+      line-height: 40px;
+      font-size: 0.7em;
+    }
+  }
 }
 
 .arrowDown {
@@ -48,6 +80,43 @@
   font-size: 2.25em;
   transform: translateX(-50%);
   animation: bounce 500ms infinite alternate;
+}
+
+.img {
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.2);
+  transition: 3s;
+}
+
+.dots {
+  @apply space-y-3;
+  position: absolute;
+  top: 70vh;
+  left: 2rem;
+  transform: translateY(-50%);
+
+  li button {
+    line-height: 0;
+    display: block;
+    cursor: pointer;
+    color: transparent;
+  }
+
+  li button:before {
+    transition: 300ms;
+    position: absolute;
+    width: 20px;
+    content: " ";
+    border: 1px solid #6d6968;
+    opacity: 0.75;
+  }
+
+  @media #{$phone} {
+    left: 20px;
+  }
 }
 
 @keyframes bounce {
@@ -61,11 +130,11 @@
 
 @keyframes appendArticle {
   from {
-    transform: translateY(-80px);
+    transform: translateY(40px);
     opacity: 0;
   }
   to {
-    transform: translateY(-50%);
+    transform: translateY(0);
     opacity: 1;
   }
 }

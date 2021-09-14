@@ -2,9 +2,10 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
+import { useTranslation } from 'react-i18next';
 import Main from '../components/main';
 import Header from '../components/header';
-import { useTranslation } from 'react-i18next';
+import Stack from '../components/stack';
 
 export const getStaticProps = async ({ locale }) => ({
   props: {
@@ -30,7 +31,7 @@ export default function Home() {
       <Main/>
 
       {/* 기술 스택 */}
-      {/* <Stack/> */}
+      <Stack/>
 
       {/* 목표 */}
       {/* <Goal/> */}
