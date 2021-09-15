@@ -12,6 +12,22 @@
   }
 }
 
+.change_header {
+  @apply fixed w-screen pt-[34px] px-[60px];
+  z-index: 100;
+  -webkit-animation: append 1s;
+          animation: append 1s;
+  background-color: white;
+  color: black;
+}
+@media only screen and (max-width: 769px) {
+  .change_header {
+    @apply pt-[14px] px-[20px];
+    -webkit-animation: appendAtPhone 1s;
+            animation: appendAtPhone 1s;
+  }
+}
+
 .menu {
   display: -webkit-box;
   display: -ms-flexbox;

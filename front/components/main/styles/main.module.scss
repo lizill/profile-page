@@ -94,7 +94,7 @@ $phone: "only screen and (max-width: 769px)";
 .dots {
   @apply space-y-3;
   position: absolute;
-  top: 70vh;
+  bottom: 20vh;
   left: 2rem;
   transform: translateY(-50%);
 

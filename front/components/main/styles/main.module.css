@@ -103,7 +103,7 @@
 .dots {
   @apply space-y-3;
   position: absolute;
-  top: 70vh;
+  bottom: 20vh;
   left: 2rem;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);

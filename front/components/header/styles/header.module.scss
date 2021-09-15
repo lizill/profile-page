@@ -10,6 +10,18 @@ $phone: "only screen and (max-width: 769px)";
     animation: appendAtPhone 1s;
   }
 }
+.change_header {
+  @apply fixed w-screen pt-[34px] px-[60px];
+  z-index: 100;
+  animation: append 1s;
+  background-color: white;
+  color: black;
+
+  @media #{$phone} {
+    @apply pt-[14px] px-[20px];
+    animation: appendAtPhone 1s;
+  }
+}
 
 .menu {
   display: flex;
