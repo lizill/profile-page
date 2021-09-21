@@ -1,0 +1,97 @@
+.introWrap {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(135deg, #010d3e, #04154b, #361966);
+  padding: 0 3rem;
+}
+
+.intro h1 {
+  color: #dca028;
+  position: absolute;
+  bottom: 150px;
+  font-size: 3em;
+}
+.intro h1:nth-child(2) {
+  bottom: 100px;
+}
+.intro p {
+  color: #54628c;
+  position: absolute;
+  bottom: 100px;
+  font-size: 1.5em;
+}
+
+.wave {
+  position: absolute;
+  width: 100vw;
+  height: 120px;
+  left: 0;
+  bottom: 0;
+}
+
+.shipWrap {
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  -webkit-animation: bounce 1.5s infinite alternate ease-in-out;
+          animation: bounce 1.5s infinite alternate ease-in-out;
+}
+.shipWrap img {
+  width: 160px;
+  -webkit-animation: ship 2.2s infinite alternate ease-in-out;
+          animation: ship 2.2s infinite alternate ease-in-out;
+}
+
+.moonWrap {
+  position: absolute;
+  right: 0;
+  top: 20%;
+  margin-right: 2rem;
+}
+.moonWrap img {
+  width: 260px;
+}
+
+@-webkit-keyframes bounce {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(-20px);
+            transform: translateY(-20px);
+  }
+}
+
+@keyframes bounce {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(-20px);
+            transform: translateY(-20px);
+  }
+}
+@-webkit-keyframes ship {
+  0% {
+    -webkit-transform: rotate(10deg);
+            transform: rotate(10deg);
+  }
+  100% {
+    -webkit-transform: rotate(15deg);
+            transform: rotate(15deg);
+  }
+}
+@keyframes ship {
+  0% {
+    -webkit-transform: rotate(10deg);
+            transform: rotate(10deg);
+  }
+  100% {
+    -webkit-transform: rotate(15deg);
+            transform: rotate(15deg);
+  }
+}
+/*# sourceMappingURL=intro.module.css.map */

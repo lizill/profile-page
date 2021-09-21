@@ -1,0 +1,81 @@
+.introWrap {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(
+    135deg,
+    rgb(1, 13, 62),
+    rgb(4, 21, 75),
+    rgb(54, 25, 102)
+  );
+  padding: 0 3rem;
+}
+
+.intro {
+  h1 {
+    color: rgb(220, 160, 40);
+    position: absolute;
+    bottom: 150px;
+    font-size: 3em;
+  }
+
+  h1:nth-child(2) {
+    bottom: 100px;
+  }
+
+  p {
+    color: rgb(84, 98, 140);
+    position: absolute;
+    bottom: 100px;
+    font-size: 1.5em;
+  }
+}
+
+.wave {
+  position: absolute;
+  width: 100vw;
+  height: 120px;
+  left: 0;
+  bottom: 0;
+}
+
+.shipWrap {
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  animation: bounce 1.5s infinite alternate ease-in-out;
+
+  img {
+    width: 160px;
+    animation: ship 2.2s infinite alternate ease-in-out;
+  }
+}
+
+.moonWrap {
+  position: absolute;
+  right: 0;
+  top: 20%;
+  margin-right: 2rem;
+
+  img {
+    width: 260px;
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes ship {
+  0% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(15deg);
+  }
+}

@@ -1,0 +1,60 @@
+.helloWrap {
+  width: 100vw;
+  height: 100vh;
+  background: #06004d;
+  color: #90a8cb;
+}
+
+.hello {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+.hello p {
+  font-weight: bold;
+  font-size: 2.2em;
+  text-align: center;
+}
+
+.hand {
+  padding-left: 5px;
+  display: inline-block;
+  -webkit-transform-origin: right bottom;
+          transform-origin: right bottom;
+  -webkit-animation: shake 0.5s infinite alternate ease-in;
+          animation: shake 0.5s infinite alternate ease-in;
+}
+
+.name {
+  padding-right: 5px;
+  display: inline-block;
+  -webkit-transform-origin: center bottom;
+          transform-origin: center bottom;
+  color: #dca028;
+  -webkit-animation: shake 1s infinite alternate ease-in;
+          animation: shake 1s infinite alternate ease-in;
+}
+
+@-webkit-keyframes shake {
+  0% {
+    -webkit-transform: rotate(-10deg);
+            transform: rotate(-10deg);
+  }
+  100% {
+    -webkit-transform: rotate(10deg);
+            transform: rotate(10deg);
+  }
+}
+
+@keyframes shake {
+  0% {
+    -webkit-transform: rotate(-10deg);
+            transform: rotate(-10deg);
+  }
+  100% {
+    -webkit-transform: rotate(10deg);
+            transform: rotate(10deg);
+  }
+}
+/*# sourceMappingURL=hello.module.css.map */
