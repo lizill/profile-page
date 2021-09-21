@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Hello from '../components/hello';
 
 import Intro from '../components/intro';
+import Skills from '../components/skills';
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       <Hello/>
 
       {/* skills */}
+      <Skills/>
 
       {/* about */}
 

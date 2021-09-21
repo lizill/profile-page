@@ -1,0 +1,53 @@
+.skillsWrap {
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  background: rgb(139, 100, 164);
+  background: linear-gradient(
+    0deg,
+    rgba(139, 100, 164, 1) 0%,
+    rgba(77, 66, 176, 1) 35%,
+    rgba(6, 1, 78, 1) 90%
+  );
+}
+
+.backLight {
+  position: relative;
+  width: 100vw;
+  height: 160vh;
+  background: rgb(139, 100, 164);
+  background: radial-gradient(
+    circle,
+    rgba(139, 100, 164, 1) 0%,
+    rgba(255, 255, 255, 0) 40%
+  );
+}
+
+.cloud {
+  width: 100vw;
+  height: 200px;
+  background-repeat: repeat-x;
+  background: url("/images/skills/cloud.png");
+}
+
+.moonWrap {
+  display: inline-block;
+  position: relative;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  img {
+    width: 40vw;
+    animation: bounce 2s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(-60px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
