@@ -11,7 +11,7 @@
   padding: 0 3rem;
 }
 
-.intro {
+.title {
   h1 {
     color: rgb(220, 160, 40);
     position: absolute;
@@ -29,6 +29,52 @@
     bottom: 100px;
     font-size: 1.5em;
   }
+}
+
+.star {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  background-color: #fff;
+  border-radius: 50% 50%;
+  transition: 0.3s;
+  transform: scale(0.7);
+
+  &:nth-child(5n) {
+    width: 3px;
+    height: 3px;
+    animation: twinkle 2s ease-in-out infinite alternate;
+  }
+
+  &:nth-child(25n) {
+    width: 5px;
+    height: 5px;
+    animation: twinkle 3s ease-in-out infinite alternate;
+  }
+}
+
+.shootingWrap {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: rotateZ(-52deg);
+
+  .shooting_star {
+    position: absolute;
+    color: #fff;
+    height: 1px;
+
+    background-color: #fff;
+    animation: shooting 1s infinite ease-out, tail 1s infinite ease-out;
+  }
+}
+
+.waveWrap {
+  position: absolute;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  left: 0px;
 }
 
 .wave {
@@ -77,5 +123,36 @@
   }
   100% {
     transform: rotate(15deg);
+  }
+}
+
+@keyframes twinkle {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes shooting {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-300px);
+  }
+}
+
+@keyframes tail {
+  0% {
+    width: 0px;
+  }
+  50% {
+    width: 100px;
+  }
+  100% {
+    width: 0px;
   }
 }
