@@ -16,6 +16,28 @@
   font-size: 2.2em;
   text-align: center;
 }
+.hello div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100vw;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.hello div p {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+.hello div hr {
+  width: 50%;
+  margin: 0 4rem;
+  border-color: #90a8cb;
+  opacity: 0.5;
+}
 
 .hand {
   padding-left: 5px;

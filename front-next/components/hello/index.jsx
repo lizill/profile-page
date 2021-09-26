@@ -10,7 +10,9 @@ const Hello = () => {
           こんばんは
           <span className={styles.hand}>👋</span>
         </p>
-        <p>よろしくお願いします。</p>
+        <div>
+          <hr/><p>よろしくお願いします。</p><hr/>
+        </div>
         <p>
           <span className={styles.name}>ドン</span>
           と申します。

@@ -1,7 +1,6 @@
 .introWrap {
   width: 100vw;
   height: 100vh;
-  overflow: hidden;
   background: linear-gradient(
     135deg,
     rgb(1, 13, 62),
@@ -71,7 +70,6 @@
 
 .waveWrap {
   position: absolute;
-  overflow: hidden;
   width: 100vw;
   height: 100vh;
   left: 0px;

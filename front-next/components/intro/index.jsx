@@ -14,7 +14,7 @@ const Intro = () => {
     let stars = [];
     for(let i = 0; i<starsCount; i++) {
       let toLeft = Math.round(Math.random() * window.innerWidth);
-      let toTop = Math.round(Math.random() * window.innerHeight);
+      let toTop = Math.round(Math.random() * window.innerHeight - 120);
       stars.push({ id: i, toLeft, toTop });
     }
     setStarArr((prevArr) => prevArr = stars);
@@ -23,12 +23,15 @@ const Intro = () => {
 
   const settingShootingStar = () => {
     let toLeft = Math.round(Math.random() * window.innerWidth);
-    let toTop = Math.round(Math.random() * window.innerHeight);
+    let toTop = Math.round(Math.random() * window.innerHeight - 300);
     setShootingLocate({ top: toTop, left: toLeft });
   }
 
   useEffect(() => {
-    window.addEventListener('scroll', () => setScrollY(window.scrollY));
+    if(window.scrollY < window.innerHeight) {
+      window.addEventListener('scroll', () => setScrollY(window.scrollY));
+      console.log(window.scrollY)
+    }
     return () => {
       window.removeEventListener('scroll', () => setScrollY(window.scrollY));
     }

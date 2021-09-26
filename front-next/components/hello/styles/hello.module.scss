@@ -15,6 +15,24 @@
     font-size: 2.2em;
     text-align: center;
   }
+
+  div {
+    display: flex;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+
+    p {
+      flex-shrink: 0;
+    }
+
+    hr {
+      width: 50%;
+      margin: 0 4rem;
+      border-color: #90a8cb;
+      opacity: 0.5;
+    }
+  }
 }
 
 .hand {
