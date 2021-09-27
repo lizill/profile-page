@@ -3,16 +3,14 @@ import Wave from 'react-wavify';
 
 import styles from './styles/intro.module.css';
 
-const Intro = () => {
-  const [scrollY, setScrollY] = useState(0);
-  const [mouseX, setMouseX] = useState(0);
+const Intro = ({ scrollY, mouseX }) => {
   const [starArr, setStarArr] = useState([]);
   const [shootingLocate, setShootingLocate] = useState(null);
   const [shoot, setShoot] = useState('block');
 
   const settingStarArr = () => {
     // 1920 * 1080 / 10000 = 207.3600
-    let starsCount = window.innerWidth * window.innerHeight / 10000
+    let starsCount = window.innerWidth * window.innerHeight / 20000
     let stars = [];
     for(let i = 0; i<starsCount; i++) {
       let toLeft = Math.round(Math.random() * window.innerWidth);
@@ -28,17 +26,6 @@ const Intro = () => {
     setShootingLocate({ top: toTop, left: toLeft });
     setShoot('block');
   }
-
-  useEffect(() => {
-    if(window.scrollY < window.innerHeight) {
-      window.addEventListener('scroll', () => setScrollY(window.scrollY));
-      window.addEventListener('mousemove', (e) => setMouseX(e.clientX - window.innerWidth / 2));
-    }
-    return () => {
-      window.removeEventListener('scroll', () => setScrollY(window.scrollY));
-      window.removeEventListener('mousemove', (e) => setMouseX(e.clientX - window.innerWidth / 2));
-    }
-  }, [scrollY, mouseX]);
 
   useEffect(() => {
     window.addEventListener('resize', settingStarArr);

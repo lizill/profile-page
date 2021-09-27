@@ -25,7 +25,7 @@
   position: absolute;
   width: 1px;
   height: 1px;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.8);
   border-radius: 50% 50%;
   -webkit-transition: 0.3s;
   transition: 0.3s;
@@ -49,16 +49,15 @@
   position: absolute;
   left: 50%;
   top: 50%;
-  -webkit-transform: rotateZ(-52deg);
-          transform: rotateZ(-52deg);
+  -webkit-transform: rotateZ(-40deg);
+          transform: rotateZ(-40deg);
 }
 .shootingWrap .shooting_star {
   position: absolute;
-  color: #fff;
   height: 1px;
-  background-color: #fff;
-  -webkit-animation: shooting 1s ease-out, tail 1s ease-out;
-          animation: shooting 1s ease-out, tail 1s ease-out;
+  background-color: rgba(255, 255, 255, 0.5);
+  -webkit-animation: shooting 1.2s ease-out, tail 1.2s ease-out;
+          animation: shooting 1.2s ease-out, tail 1.2s ease-out;
 }
 
 .waveWrap {
@@ -162,8 +161,8 @@
             transform: translateX(0);
   }
   100% {
-    -webkit-transform: translateX(-300px);
-            transform: translateX(-300px);
+    -webkit-transform: translateX(-500px);
+            transform: translateX(-500px);
   }
 }
 @keyframes shooting {
@@ -172,8 +171,8 @@
             transform: translateX(0);
   }
   100% {
-    -webkit-transform: translateX(-300px);
-            transform: translateX(-300px);
+    -webkit-transform: translateX(-500px);
+            transform: translateX(-500px);
   }
 }
 @-webkit-keyframes tail {
@@ -181,7 +180,7 @@
     width: 0px;
   }
   50% {
-    width: 100px;
+    width: 200px;
   }
   100% {
     width: 0px;
@@ -192,7 +191,7 @@
     width: 0px;
   }
   50% {
-    width: 100px;
+    width: 200px;
   }
   100% {
     width: 0px;

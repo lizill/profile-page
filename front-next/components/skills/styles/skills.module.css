@@ -1,5 +1,12 @@
 .skillsWrap {
+  width: 100vw;
+  height: 500vh;
+}
+
+.stickyWrap {
+  position: sticky;
   overflow: hidden;
+  top: 0px;
   width: 100vw;
   height: 100vh;
   background: #8b64a4;
@@ -9,31 +16,58 @@
 
 .backLight {
   position: relative;
+  top: 120px;
   width: 100vw;
-  height: 160vh;
+  height: 100vh;
   background: #8b64a4;
   background: radial-gradient(circle, #8b64a4 0%, rgba(255, 255, 255, 0) 40%);
 }
 
 .cloud {
-  width: 100vw;
-  height: 200px;
+  position: absolute;
+  bottom: 120px;
+  width: 500vw;
+  height: 120px;
   background-repeat: repeat-x;
   background: url("/images/skills/cloud.png");
+}
+.cloud:nth-child(2) {
+  opacity: 0.5;
+}
+.cloud:nth-child(3) {
+  bottom: 100px;
 }
 
 .moonWrap {
   display: inline-block;
-  position: relative;
-  top: 10%;
+  position: absolute;
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
 }
 .moonWrap img {
-  width: 40vw;
+  width: 60vh;
   -webkit-animation: bounce 2s ease-in-out infinite alternate;
           animation: bounce 2s ease-in-out infinite alternate;
+}
+
+.content {
+  position: absolute;
+  left: 200vh;
+  width: 100vw;
+  height: 100vh;
+}
+.content .skills {
+  display: inline-block;
+  position: absolute;
+  bottom: 240px;
+  left: 50vw;
+  width: 220px;
+}
+.content .skills p {
+  color: #fff;
+  font-weight: bold;
+  font-size: 2.2em;
 }
 
 @-webkit-keyframes bounce {
