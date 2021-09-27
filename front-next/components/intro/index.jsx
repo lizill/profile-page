@@ -5,8 +5,10 @@ import styles from './styles/intro.module.css';
 
 const Intro = () => {
   const [scrollY, setScrollY] = useState(0);
+  const [mouseX, setMouseX] = useState(0);
   const [starArr, setStarArr] = useState([]);
   const [shootingLocate, setShootingLocate] = useState(null);
+  const [shoot, setShoot] = useState('block');
 
   const settingStarArr = () => {
     // 1920 * 1080 / 10000 = 207.3600
@@ -18,24 +20,25 @@ const Intro = () => {
       stars.push({ id: i, toLeft, toTop });
     }
     setStarArr((prevArr) => prevArr = stars);
-    settingShootingStar()
   }
 
   const settingShootingStar = () => {
     let toLeft = Math.round(Math.random() * window.innerWidth);
     let toTop = Math.round(Math.random() * window.innerHeight - 300);
     setShootingLocate({ top: toTop, left: toLeft });
+    setShoot('block');
   }
 
   useEffect(() => {
     if(window.scrollY < window.innerHeight) {
       window.addEventListener('scroll', () => setScrollY(window.scrollY));
-      console.log(window.scrollY)
+      window.addEventListener('mousemove', (e) => setMouseX(e.clientX - window.innerWidth / 2));
     }
     return () => {
       window.removeEventListener('scroll', () => setScrollY(window.scrollY));
+      window.removeEventListener('mousemove', (e) => setMouseX(e.clientX - window.innerWidth / 2));
     }
-  }, [scrollY]);
+  }, [scrollY, mouseX]);
 
   useEffect(() => {
     window.addEventListener('resize', settingStarArr);
@@ -45,17 +48,24 @@ const Intro = () => {
     }
   }, []);
 
+  useEffect(() => {
+    setInterval(() => settingShootingStar(), 5000);
+    return () => {
+      clearInterval(() => settingShootingStar(), 5000);
+    }
+  }, []);
+
   return (
     <div className={styles.introWrap}>
       {starArr && starArr.map(v => (
         <div className={styles.star} style={{ top: v.toTop, left: v.toLeft }} key={v.id}/>
       ))}
       {shootingLocate && (
-        <div className={styles.shootingWrap} style={{ top: shootingLocate.top, left: shootingLocate.left }}>
-          <div className={styles.shooting_star}/>
+        <div className={styles.shootingWrap} style={{ top: shootingLocate.top, left: shootingLocate.left, display: shoot }}>
+          <div className={styles.shooting_star} onAnimationEnd={() => setShoot('none')}/>
         </div>
       )}
-      <div className={styles.moonWrap}>
+      <div className={styles.moonWrap} style={{ transform: `translate(${-mouseX/300}px)` }}>
         <img src="/images/intro/moon.png" alt="moon" />
       </div>
       <div className={styles.waveWrap}>
@@ -76,7 +86,9 @@ const Intro = () => {
         <p>1ST PORTFOLIO</p>
       </div>
       <div className={styles.shipWrap}>
-        <img src="/images/intro/ship.png" alt="ship" />
+        <div style={{ transform: `translate(${mouseX/100}px)` }}>
+          <img src="/images/intro/ship.png" alt="ship" />
+        </div>
       </div>
       <Wave className={styles.wave} fill='#06004d'
         paused={false}
