@@ -4,6 +4,7 @@ import Hello from '../components/hello';
 
 import Intro from '../components/intro';
 import Skills from '../components/skills';
+import About from '../components/about';
 
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
@@ -34,6 +35,7 @@ export default function Home() {
       <Skills scrollY={scrollY} mouseX={mouseX}/>
 
       {/* about */}
+      <About/>
 
       {/* projects */}
 

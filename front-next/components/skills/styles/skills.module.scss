@@ -1,6 +1,5 @@
 .skillsWrap {
   width: 100vw;
-  height: 500vh;
 }
 
 .stickyWrap {
@@ -12,7 +11,7 @@
   background: rgb(139, 100, 164);
   background: linear-gradient(
     0deg,
-    rgba(139, 100, 164, 1) 0%,
+    rgb(195, 127, 155) 0%,
     rgba(77, 66, 176, 1) 35%,
     rgba(6, 1, 78, 1) 90%
   );
@@ -20,31 +19,32 @@
 
 .backLight {
   position: relative;
-  top: 120px;
+  top: 0px;
   width: 100vw;
-  height: 100vh;
+  height: 250vh;
   background: rgb(139, 100, 164);
   background: radial-gradient(
     circle,
-    rgba(139, 100, 164, 1) 0%,
-    rgba(255, 255, 255, 0) 40%
+    rgb(195, 127, 155) 0%,
+    rgba(139, 100, 164, 1) 25%,
+    rgba(255, 255, 255, 0) 75%
   );
 }
 
 .cloud {
   position: absolute;
-  bottom: 120px;
-  width: 500vw;
+  bottom: 0px;
+  width: 1000vw;
   height: 120px;
   background-repeat: repeat-x;
   background: url("/images/skills/cloud.png");
 
-  &:nth-child(2) {
+  &:nth-child(3) {
     opacity: 0.5;
   }
 
-  &:nth-child(3) {
-    bottom: 100px;
+  &:nth-child(4) {
+    bottom: -20px;
   }
 }
 
@@ -52,6 +52,7 @@
   display: inline-block;
   position: absolute;
   left: 50%;
+  top: 20%;
   transform: translateX(-50%);
 
   img {
@@ -62,21 +63,87 @@
 
 .content {
   position: absolute;
+  top: 0px;
   left: 200vh;
   width: 100vw;
   height: 100vh;
 
   .skills {
-    display: inline-block;
+    display: flex;
     position: absolute;
-    bottom: 240px;
+    bottom: 140px;
     left: 50vw;
-    width: 220px;
+    padding-right: 300px;
+    width: fit-content;
+    align-items: center;
 
-    p {
+    h3 {
       color: #fff;
       font-weight: bold;
       font-size: 2.2em;
+      width: 220px;
+      margin-right: 500px;
+    }
+
+    .stack {
+      transform: translateY(100%);
+      transition: 0.25s ease-out;
+      width: 500px;
+      box-sizing: border-box;
+
+      p {
+        color: #d6fffc;
+        font-weight: bold;
+        font-size: 32px;
+        line-height: 32px;
+      }
+
+      .tag {
+        color: #b095c0;
+        font-size: 12px;
+        line-height: 12px;
+      }
+
+      .level {
+        color: #c594c3;
+        font-size: 40px;
+        line-height: 46px;
+      }
+    }
+
+    .lineWrap {
+      opacity: 0.1;
+
+      .line {
+        position: absolute;
+        top: 60px;
+        width: 100%;
+        list-style: none;
+
+        li {
+          hr {
+            border-color: rgba(255, 255, 255);
+          }
+        }
+
+        li + li {
+          margin-top: 20px;
+        }
+      }
+
+      .lineEnd {
+        background-color: rgb(255, 255, 255);
+        position: absolute;
+        right: 0px;
+        top: 61px;
+        width: 8px;
+        height: 89px;
+
+        &:nth-child(2) {
+          right: 15px;
+          width: 2px;
+        }
+      }
     }
   }
 }
