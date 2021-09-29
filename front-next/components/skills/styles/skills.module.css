@@ -45,7 +45,7 @@
           transform: translateX(-50%);
 }
 .moonWrap img {
-  width: 60vh;
+  width: 500px;
   -webkit-animation: bounce 2s ease-in-out infinite alternate;
           animation: bounce 2s ease-in-out infinite alternate;
 }
