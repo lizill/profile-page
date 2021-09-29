@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 
 import styles from './styles/hello.module.css'
 
@@ -22,4 +22,4 @@ const Hello = () => {
   )
 }
 
-export default Hello;
+export default memo(Hello);

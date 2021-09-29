@@ -1,6 +1,9 @@
-import React, { useRef, useEffect, useState, createRef } from "react";
+import React, { useRef, useEffect, useState, createRef, memo } from "react";
+import CountUp from 'react-countup';
 
-import styles from './styles/skills.module.css'
+import styles from './styles/skills.module.css';
+
+const toggleArr = [];
 
 const Skills = ({ scrollY, mouseX }) => {
   const [sectionHeight, setSectionHeight] = useState(0);
@@ -12,42 +15,23 @@ const Skills = ({ scrollY, mouseX }) => {
   }
 
   useEffect(() => {
-    window.addEventListener('resize', () => 
-      setSectionHeight(skillsRef.current.offsetWidth + window.innerWidth/2)
-    );
-    setSectionHeight(skillsRef.current.offsetWidth + window.innerWidth/2);
-    return (
-      window.removeEventListener('resize', () => 
-        setSectionHeight(skillsRef.current.offsetWidth + window.innerWidth/2)
-      )
-    );
+    let height = skillsRef.current.offsetWidth + window.innerWidth/2;
+    window.addEventListener('resize', setSectionHeight(height));
+    setSectionHeight(height);
+    return window.removeEventListener('resize', setSectionHeight(height));
   }, []);
 
   useEffect(() => {
-    // console.log(scrollY, window.innerHeight*2+window.innerWidth/2)
-    let left = window.innerHeight*2+window.innerWidth/2-720
-    if(scrollY >= left) {
-      stackRef.current[0].current.style.transform = `translateY(${50-stacks[0].level}%)`;
-      stackRef.current[0].current.style.opacity = 1;
-    }
-    if(scrollY >= left+500) {
-      stackRef.current[1].current.style.transform = `translateY(${50-stacks[1].level}%)`;
-      stackRef.current[1].current.style.opacity = 1;
-    }
-    if(scrollY >= left+500*2) {
-      stackRef.current[2].current.style.transform = `translateY(${50-stacks[2].level}%)`;
-      stackRef.current[2].current.style.opacity = 1;
-    }
-    if(scrollY >= left+500*3) {
-      stackRef.current[3].current.style.transform = `translateY(${50-stacks[3].level}%)`;
-      stackRef.current[3].current.style.opacity = 1;
-    }
-    if(scrollY >= left+500*4) {
-      stackRef.current[4].current.style.transform = `translateY(${50-stacks[4].level}%)`;
-      stackRef.current[4].current.style.opacity = 1;
-    }
-
-  }, [scrollY])
+    let left = window.innerHeight*2 + 720 - window.innerWidth/4;
+    stacks.map((v, i) => {
+      let elementX = left+stackRef.current[i].current.offsetWidth*i;
+      if(scrollY >= elementX && !toggleArr[i]) {
+        stackRef.current[i].current.style.transform = `translateY(${50-v.level}%)`;
+        stackRef.current[i].current.style.opacity = 1;
+        toggleArr.push(true);
+      }
+    });
+  }, [scrollY]);
 
   return (
     <div className={styles.skillsWrap} style={{ height: sectionHeight }}>
@@ -75,27 +59,32 @@ const Skills = ({ scrollY, mouseX }) => {
                 <div className={styles.lineEnd}></div>
               </div>
               <h3>
-                わたしは <br/>
-                こーゆう事が <br/>
-                すこし <br/>
+                わたしは<br/>
+                こーゆう事が<br/>
+                すこし<br/>
                 できます。
               </h3>
               {stacks && stacks.map((v, i) => (
                 <div className={styles.stack} ref={stackRef.current[i]} key={v.id}>
-                  {/* <p style={{ transform: `translateY(${50-v.level}%)` }}> */}
                   <p className={styles.tag}>{v.tag}</p>
                   <p>{v.stack}</p>
-                  <p className={styles.level}>{v.level}%</p>
+                  {
+                    toggleArr[i]
+                      ? <p className={styles.level} >
+                        <CountUp end={v.level} duration={0.5}/>%
+                      </p>
+                      : <p className={styles.level}>0%</p>
+                  }
                 </div>
               ))}
             </div>
           </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default Skills;
+export default memo(Skills);
 
 const stacks = [
   {
@@ -114,24 +103,30 @@ const stacks = [
     id: 3,
     tag: 'Front-End',
     stack: 'Vue.js',
-    level: '90',
+    level: '70',
   },
   {
     id: 4,
-    tag: 'Back-End',
-    stack: 'Laravel',
-    level: '80',
+    tag: 'Front-End',
+    stack: 'HTML5, CSS3(SCSS)',
+    level: '90',
   },
   {
     id: 5,
+    tag: 'Back-End',
+    stack: 'Laravel',
+    level: '60',
+  },
+  {
+    id: 6,
+    tag: 'Back-End',
+    stack: 'Node.js',
+    level: '70'
+  },
+  {
+    id: 7,
     tag: 'Andriod',
     stack: 'Java',
-    level: '100',
+    level: '90',
   },
-  // {
-  //   id: 6,
-  //   tag: 'Front-End',
-  //   stack: 'HTML5, SCC3(SCSS)',
-  //   level: '60',
-  // },
 ];

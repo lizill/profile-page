@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback, memo } from 'react';
 import Wave from 'react-wavify';
 
 import styles from './styles/intro.module.css';
@@ -8,7 +8,7 @@ const Intro = ({ scrollY, mouseX }) => {
   const [shootingLocate, setShootingLocate] = useState(null);
   const [shoot, setShoot] = useState('block');
 
-  const settingStarArr = () => {
+  const settingStarArr = useCallback(() => {
     // 1920 * 1080 / 10000 = 207.3600
     let starsCount = window.innerWidth * window.innerHeight / 20000
     let stars = [];
@@ -18,14 +18,14 @@ const Intro = ({ scrollY, mouseX }) => {
       stars.push({ id: i, toLeft, toTop });
     }
     setStarArr((prevArr) => prevArr = stars);
-  }
+  }, []);
 
-  const settingShootingStar = () => {
+  const settingShootingStar = useCallback(() => {
     let toLeft = Math.round(Math.random() * window.innerWidth);
     let toTop = Math.round(Math.random() * window.innerHeight - 300);
     setShootingLocate({ top: toTop, left: toLeft });
     setShoot('block');
-  }
+  }, []);
 
   useEffect(() => {
     window.addEventListener('resize', settingStarArr);
@@ -90,4 +90,4 @@ const Intro = ({ scrollY, mouseX }) => {
   )
 }
 
-export default Intro;
+export default memo(Intro);

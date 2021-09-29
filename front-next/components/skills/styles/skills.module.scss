@@ -49,10 +49,9 @@
 }
 
 .moonWrap {
-  display: inline-block;
   position: absolute;
   left: 50%;
-  top: 20%;
+  top: 10%;
   transform: translateX(-50%);
 
   img {
@@ -88,7 +87,7 @@
     .stack {
       transform: translateY(100%);
       transition: 0.25s ease-out;
-      width: 500px;
+      width: 400px;
       box-sizing: border-box;
 
       p {
