@@ -71,8 +71,8 @@ const Skills = ({ scrollY, mouseX }) => {
                   {
                     toggleArr[i]
                       ? <p className={styles.level} >
-                        <CountUp end={v.level} duration={0.5}/>%
-                      </p>
+                          <CountUp end={v.level} duration={0.5}/>%
+                        </p>
                       : <p className={styles.level}>0%</p>
                   }
                 </div>
