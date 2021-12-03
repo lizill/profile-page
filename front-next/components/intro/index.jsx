@@ -53,7 +53,7 @@ const Intro = ({ scrollY, mouseX }) => {
         </div>
       )}
       <div className={styles.moonWrap} style={{ transform: `translate(${-mouseX/300}px)` }}>
-        <img src="/images/intro/moon.png" alt="moon" />
+        <img src="/images/intro_moon.png" alt="moon" />
       </div>
       <div className={styles.waveWrap}>
         <Wave className={styles.wave} fill='#040037'
@@ -74,7 +74,7 @@ const Intro = ({ scrollY, mouseX }) => {
       </div>
       <div className={styles.shipWrap}>
         <div style={{ transform: `translate(${mouseX/100}px)` }}>
-          <img src="/images/intro/ship.png" alt="ship" />
+          <img src="/images/intro_ship.png" alt="ship" />
         </div>
       </div>
       <Wave className={styles.wave} fill='#06004d'

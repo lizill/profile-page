@@ -40,7 +40,7 @@ const Skills = ({ scrollY, mouseX }) => {
         </div>
           <div className={styles.moonWrap}>
             <div style={{ transform: `translate(${mouseX/100}px)` }}>
-              <img src="/images/skills/moon.png" alt="moon"/>
+              <img src="/images/skills_moon.png" alt="moon"/>
             </div>
           </div>
           <div className={styles.cloud} style={{ transform: `translateX(${-scrollY/3}px)` }}/>

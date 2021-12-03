@@ -28,7 +28,7 @@
   width: 1000vw;
   height: 120px;
   background-repeat: repeat-x;
-  background: url("/images/skills/cloud.png");
+  background: url("/images/skills_cloud.png");
 }
 .cloud:nth-child(3) {
   opacity: 0.5;
